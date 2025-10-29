@@ -11,11 +11,13 @@ export default function HomeScreen() {
       <View style={styles.header}>
         <View style={styles.row}>
           <Image
-            source={{ uri: "https://i.pravatar.cc/100" }}
+            source={{
+              uri: "https://media.istockphoto.com/id/814423752/photo/eye-of-model-with-colorful-art-make-up-close-up.jpg?s=612x612&w=0&k=20&c=l15OdMWjgCKycMMShP8UK94ELVlEGvt7GmB_esHWPYE=",
+            }}
             style={styles.avatar}
           />
           <View>
-            <Text style={styles.hello}>Hello, Sandra</Text>
+            <Text style={styles.hello}>Hello, Sukhvinder</Text>
             <Text style={styles.date}>Today 25 Nov.</Text>
           </View>
         </View>
@@ -31,7 +33,7 @@ export default function HomeScreen() {
       <View style={styles.week}>
         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d, i) => (
           <View key={i} style={d === "Wed" ? styles.activeDay : styles.day}>
-            <Text style={styles.dayText}>{d}</Text>
+            <Text style={[styles.dayText, d === "Wed" && { color: "rgba(255, 255, 255, 1)" }]}>{d}</Text>
           </View>
         ))}
       </View>
@@ -41,7 +43,7 @@ export default function HomeScreen() {
 
       <View style={styles.planContainer}>
         <TouchableOpacity
-          style={[styles.planBox, { backgroundColor: "#FBBE5E" }]}
+          style={[styles.planBox, { backgroundColor: "rgba(167, 109, 39, 1)" }]}
           onPress={() => navigation.getParent()?.navigate("Details", { title: "Yoga Group" })}
         >
           <Text style={styles.planLabel}>Medium</Text>
@@ -51,7 +53,7 @@ export default function HomeScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={[styles.planBox, { backgroundColor: "#A6C9FF" }]}
+          style={[styles.planBox, { backgroundColor: "rgba(152, 154, 158, 1)" }]}
           onPress={() => navigation.getParent()?.navigate("Details", { title: "Balance" })}
         >
           <Text style={styles.planLabel}>Light</Text>
@@ -64,48 +66,56 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#EAE6FA", padding: 20 },
+  container: { flex: 1, backgroundColor: "rgba(248, 246, 255, 1)", padding: 20 },
   header: { marginTop: 40, marginBottom: 10 },
   row: { flexDirection: "row", alignItems: "center" },
-  avatar: { width: 50, height: 50, borderRadius: 25, marginRight: 10 },
-  hello: { fontSize: 20, fontWeight: "700" },
-  date: { fontSize: 14, color: "#555" },
+  avatar: { width: 55, height: 55, borderRadius: 27.5, marginRight: 12 },
+  hello: { fontSize: 20, fontWeight: "700", color: "rgba(46, 44, 77, 1)" },
+  date: { fontSize: 14, color: "rgba(108, 106, 138, 1)" },
 
   challengeCard: {
-    backgroundColor: "#BFAAFF",
+    backgroundColor: "rgba(208, 188, 255, 1)",
     borderRadius: 20,
     padding: 20,
     marginVertical: 20,
   },
-  challengeTitle: { fontSize: 20, fontWeight: "700", color: "#000" },
-  challengeText: { fontSize: 14, color: "#333", marginTop: 5 },
+  challengeTitle: { fontSize: 20, fontWeight: "700", color: "rgba(46, 44, 77, 1)" },
+  challengeText: { fontSize: 14, color: "rgba(63, 60, 91, 1)", marginTop: 5 },
 
   week: { flexDirection: "row", justifyContent: "space-between", marginBottom: 20 },
   day: {
-    backgroundColor: "#fff",
+    backgroundColor: "rgba(255, 255, 255, 1)",
     borderRadius: 20,
     paddingVertical: 10,
     width: 40,
     alignItems: "center",
+    shadowColor: "rgba(0, 0, 0, 1)",
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 3,
   },
   activeDay: {
-    backgroundColor: "#000",
+    backgroundColor: "rgba(108, 99, 255, 1)",
     borderRadius: 20,
     paddingVertical: 10,
     width: 40,
     alignItems: "center",
   },
-  dayText: { color: "#000", fontWeight: "500" },
+  dayText: { color: "rgba(46, 44, 77, 1)", fontWeight: "500" },
 
-  planTitle: { fontSize: 20, fontWeight: "700", marginBottom: 10 },
+  planTitle: { fontSize: 20, fontWeight: "700", marginBottom: 10, color: "rgba(46, 44, 77, 1)" },
   planContainer: { flexDirection: "row", justifyContent: "space-between" },
   planBox: {
     width: "47%",
     borderRadius: 20,
     padding: 15,
+    shadowColor: "rgba(0, 0, 0, 1)",
+    shadowOpacity: 0.15,
+    shadowRadius: 5,
+    elevation: 4,
   },
-  planLabel: { fontWeight: "600", fontSize: 13 },
-  planName: { fontWeight: "700", fontSize: 18, marginVertical: 5 },
-  planInfo: { fontSize: 12, color: "#333" },
-  trainer: { marginTop: 5, fontSize: 12, color: "#000" },
+  planLabel: { fontWeight: "600", fontSize: 13, color: "rgba(51, 51, 51, 1)" },
+  planName: { fontWeight: "700", fontSize: 18, marginVertical: 5, color: "rgba(46, 44, 77, 1)" },
+  planInfo: { fontSize: 12, color: "rgba(63, 60, 91, 1)" },
+  trainer: { marginTop: 5, fontSize: 12, color: "rgba(46, 44, 77, 1)" },
 });
